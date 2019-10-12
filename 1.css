@@ -1,0 +1,28 @@
+*{margin: 0;padding: 0;}
+
+h6 {
+    float: left;
+}
+
+.td {
+    margin: 20px;
+}
+
+input#result {
+    margin: 36px;
+    height: 40px;
+    width: 231px;
+}
+
+input#no2 {
+    margin-left: 10px;
+}
+
+h6 {
+    margin: 30px;
+    margin-bottom: 20px !important;
+}
+
+label {
+    margin-top: 20px;
+}

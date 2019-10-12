@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">  
+	<title>Calculater</title>
+	<link rel="stylesheet" href="1.css">	
+	<script type="text/javascript" src="1.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="main">
+		<div class="container">
+			<h1 class="text-center">Bé tập tính</h1>
+			<br>
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-5">
+					<form class="form-inline was-validated">
+						<label for="no1"><h6>Số thứ nhất <span>*</span>:</h6></label>
+						<input type="number" class="form-control" id="no1" placeholder="Nhập số" step="any" required>
+						<div class="invalid-feedback">Nhập số thứ nhất</div>
+						<label for="no2"><h6>Số thứ hai <span>*</span>:</h6></label>
+						<input type="number" class="form-control" id="no2" placeholder="Nhập số" step="any" required>      
+						<div class="invalid-feedback">Nhập số thứ hai</div>
+						
+					</form>
+					<div d-inline><h6>Kết quả: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6><input type="number" class="form-control" id="result"/>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<form class="d-inline-block was-validated" id="dau">
+						<div class="form-check">
+							<label class="form-check-label" for="cong">
+								<input type="radio" class="form-check-input" id="cong" name="phepTinh" value="cong" checked>Cộng
+							</label>
+						</div>
+						<div class="form-check">
+							<label class="form-check-label" for="tru">
+								<input type="radio" class="form-check-input" id="tru" name="phepTinh" value="tru">Trừ
+							</label>
+						</div>						
+						<div class="form-check">
+							<label class="form-check-label" for="nhan">
+								<input type="radio" class="form-check-input" id="nhan" name="phepTinh" value="nhan">Nhân
+							</label>
+						</div>						
+						<div class="form-check">
+							<label class="form-check-label" for="chia">
+								<input type="radio" class="form-check-input" id="chia" name="phepTinh" value="chia">Chia
+							</label>
+						</div>      
+
+					</form>
+					<br>
+					<br>
+					<button value = "=" onclick="calc();" class="btn btn-primary">Tính</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

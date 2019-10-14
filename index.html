@@ -7,9 +7,7 @@
 	<link rel="stylesheet" href="1.css">	
 	<script type="text/javascript" src="1.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 	<div class="main">
@@ -19,23 +17,24 @@
 			<div class="row">
 				<div class="col-md-3"></div>
 				<div class="col-md-5">
-					<form class="form-inline was-validated">
+					<form class="form-inline">
 						<label for="no1"><h6>Số thứ nhất <span>*</span>:</h6></label>
-						<input type="number" class="form-control" id="no1" placeholder="Nhập số" step="any" required>
+						<input type="text" class="form-control" id="no1" placeholder="Nhập số">
 						<div class="invalid-feedback">Nhập số thứ nhất</div>
 						<label for="no2"><h6>Số thứ hai <span>*</span>:</h6></label>
-						<input type="number" class="form-control" id="no2" placeholder="Nhập số" step="any" required>      
+						<input type="text" class="form-control" id="no2" placeholder="Nhập số">      
 						<div class="invalid-feedback">Nhập số thứ hai</div>
 						
 					</form>
 					<div d-inline><h6>Kết quả: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6><input type="number" class="form-control" id="result"/>
 					</div>
+					<div class="thongBao"><h6>Thông báo:</h6><div id="warning"></div></div>
 				</div>
 				<div class="col-md-2">
-					<form class="d-inline-block was-validated" id="dau">
+					<form class="d-inline-block" id="dau">
 						<div class="form-check">
 							<label class="form-check-label" for="cong">
-								<input type="radio" class="form-check-input" id="cong" name="phepTinh" value="cong" checked>Cộng
+								<input type="radio" class="form-check-input" id="cong" name="phepTinh" value="cong">Cộng
 							</label>
 						</div>
 						<div class="form-check">
@@ -63,5 +62,55 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		function IsANumber() {
+			if (isNaN(this.value)) {
+				document.getElementById("warning").innerHTML = "Dữ liệu không phải là số thực";
+				return 0;
+			}
+			document.getElementById("warning").innerHTML = "";
+			return 1;
+		}
+		var checkNo1 = document.getElementById("no1");
+		checkNo1.onblur = IsANumber;
+		var checkNo2 = document.getElementById("no2");
+		checkNo2.onblur = IsANumber;
+
+		function calc()
+		{
+			if (isNaN(document.getElementById("no1").value) || isNaN(document.getElementById("no2").value) || (document.getElementById("no1").value === "") || (document.getElementById("no2").value === "")){
+				warning.innerHTML = "bạn chưa nhập đủ 2 số hợp lệ";
+				return 0;
+			}
+			else {
+				document.getElementById("warning").innerHTML = "";
+			}
+			var x = parseFloat(document.getElementById("no1").value);
+			var y = parseFloat(document.getElementById("no2").value);
+			var flag = 0;
+			if (document.getElementById("cong").checked) {
+				document.getElementById('result').value = x+y;
+				flag = 1;
+			}	
+			if (document.getElementById("tru").checked) {
+				document.getElementById('result').value = x-y;
+				flag = 1;
+			}	
+			if (document.getElementById("nhan").checked) {
+				document.getElementById('result').value = x*y;
+				flag = 1;
+			}	
+			if (document.getElementById("chia").checked) {
+				document.getElementById('result').value = x/y;
+				flag = 1;
+			}
+			if (flag === 0) {
+				warning.innerHTML = "Bạn chưa chọn phép tính";
+				return 0;
+			}
+
+		}
+
+	</script>
 </body>
 </html>

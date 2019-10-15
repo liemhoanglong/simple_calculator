@@ -1,5 +1,10 @@
 *{margin: 0;padding: 0;}
 
+div#warning {
+    margin-left: 20px;
+    color: red;
+}
+
 .thongBao {
     color: red;
 }
@@ -14,16 +19,6 @@ h6 {
 
 .td {
     margin: 20px;
-}
-
-input#result {
-    margin: 36px;
-    height: 40px;
-    width: 231px;
-}
-
-input#no2 {
-    margin-left: 10px;
 }
 
 h6 {
